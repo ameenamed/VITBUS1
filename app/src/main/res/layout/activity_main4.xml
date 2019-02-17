@@ -1,0 +1,28 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp" >
+    <Button
+        android:text="Route 8 "
+        android:id="@+id/route8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:padding="16dp"
+        android:onClick="route8"
+        />
+    <Button
+        android:text="Route 16"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/route16"
+        android:layout_below="@id/route8"
+        android:padding="16dp"
+        android:onClick="route16"
+        />
+
+
+</RelativeLayout>
