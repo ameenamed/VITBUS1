@@ -45,6 +45,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -77,7 +78,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     private static final int LOCATION_REQUEST=500;
     private LocationManager locationManager;
     private LocationListener listener;
-    private Button b;
+    private Switch b;
     private ListView mValueView;
     private Firebase mRef;
     private ArrayList<String> mkeys = new ArrayList<>();
@@ -143,30 +144,28 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     }
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        b = (Button) findViewById(R.id.button);
+        b = (Switch) findViewById(R.id.button);
         //t = (TextView)findViewById(R.id.textView);
         mMap = googleMap;
 
         mMap.getUiSettings().setZoomControlsEnabled(true);
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION},LOCATION_REQUEST);
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_REQUEST);
             return;
         }
-        mMap.setMyLocationEnabled(true);
+
         mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
             @Override
             public void onMapClick(LatLng latLng) {
-                if(listpoints.size()==1)
-                {
+                if (listpoints.size() == 1) {
                     listpoints.clear();
                     mMap.clear();
                 }
                 listpoints.add(latLng);
-                MarkerOptions markerOptions=new MarkerOptions();
+                MarkerOptions markerOptions = new MarkerOptions();
                 markerOptions.position(latLng);
 
-                if(listpoints.size()==1)
-                {
+                if (listpoints.size() == 1) {
                     markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
                 }
                 mMap.addMarker(markerOptions);
@@ -188,15 +187,6 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
 
 
-
-
-
-
-
-
-
-
-
         //seattle coordinates
         LatLng seattle = new LatLng(12.840232, 80.152984);
         //mMap.addMarker(new MarkerOptions().position(seattle).title("VIT Chennai"));
@@ -205,15 +195,27 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
         //locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 01, 0, listener);
         //t.append("\n " + 12.840232 + " " + 80.152984);
-
+        mMap.setMyLocationEnabled(false);
         listener = new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
+                if(b.isChecked()){
+                    mMap.clear();
+                    Firebase mRefChild = mRef.child("Latitude");
+                    mRefChild.setValue(location.getLatitude());
+                    Firebase mRefChild1 = mRef.child("Longitude");
+                    mRefChild1.setValue(location.getLongitude());
+                    mMap.setMyLocationEnabled(true);}
+                else
+                {
+                    Double lati=Double.parseDouble(lat.get(0));
+                    Double longi=Double.parseDouble(lat.get(1));
+                    LatLng curr=new LatLng(lati,longi);
+                    mMap.addMarker(new MarkerOptions().position(curr).title("Current Location"));
+                    mMap.setMyLocationEnabled(false);
 
-                Firebase mRefChild=mRef.child("Latitude");
-                mRefChild.setValue(location.getLatitude());
-                Firebase mRefChild1=mRef.child("Longitude");
-                mRefChild1.setValue(location.getLongitude());
+                }
+
                 //t.append("\n " + location.getLatitude() + " " + location.getLongitude());
             }
 
@@ -238,8 +240,8 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         // init();
         configure_button();
 
-    }
 
+    }
     private String getRequestUrl(LatLng latLng, LatLng latLng1) {
 
         String str_org="origin ="+latLng.latitude+ " , "+latLng.longitude;
@@ -396,3 +398,4 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
         }
     }}
+
