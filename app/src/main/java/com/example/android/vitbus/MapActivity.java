@@ -75,7 +75,7 @@ import java.util.List;
 public class MapActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap, cMap;
-    private static final int LOCATION_REQUEST=500;
+    private static final int LOCATION_REQUEST = 500;
     private LocationManager locationManager;
     private LocationListener listener;
     private Switch b;
@@ -84,7 +84,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     private ArrayList<String> mkeys = new ArrayList<>();
     private ArrayList<String> lat = new ArrayList<>();
 
-    private ArrayList<LatLng> listpoints=new ArrayList<>();
+    private ArrayList<LatLng> listpoints = new ArrayList<>();
 
 
     @Override
@@ -92,22 +92,22 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
         Firebase.setAndroidContext(this);
-        mRef=new Firebase("https://vitbus1.firebaseio.com/");
-        mValueView=(ListView) findViewById(R.id.listview);
+        mRef = new Firebase("https://vitbus1.firebaseio.com/");
+        //mValueView=(ListView) findViewById(R.id.listview);
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.g_map);
         mapFragment.getMapAsync(this);
 
-        ArrayAdapter<String> arrayAdapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,lat);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, lat);
         // locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 01, 0, listener);
-        mValueView.setAdapter(arrayAdapter);
+        //mValueView.setAdapter(arrayAdapter);
         mRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                String value=dataSnapshot.getValue(String.class);
+                String value = dataSnapshot.getValue(String.class);
                 lat.add(value);
-                String key=dataSnapshot.getKey();
+                String key = dataSnapshot.getKey();
                 mkeys.add(key);
                 arrayAdapter.notifyDataSetChanged();
             }
@@ -115,10 +115,10 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
 
-                String value=dataSnapshot.getValue(String.class);
-                String key=dataSnapshot.getKey();
-                int index=mkeys.indexOf(key);
-                lat.set(index,value);
+                String value = dataSnapshot.getValue(String.class);
+                String key = dataSnapshot.getKey();
+                int index = mkeys.indexOf(key);
+                lat.set(index, value);
                 arrayAdapter.notifyDataSetChanged();
             }
 
@@ -139,9 +139,8 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         });
 
 
-
-
     }
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
         b = (Switch) findViewById(R.id.button);
@@ -184,9 +183,6 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         });
 
 
-
-
-
         //seattle coordinates
         LatLng seattle = new LatLng(12.840232, 80.152984);
         //mMap.addMarker(new MarkerOptions().position(seattle).title("VIT Chennai"));
@@ -199,18 +195,17 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         listener = new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
-                if(b.isChecked()){
+                if (b.isChecked()) {
                     mMap.clear();
                     Firebase mRefChild = mRef.child("Latitude");
                     mRefChild.setValue(location.getLatitude());
                     Firebase mRefChild1 = mRef.child("Longitude");
                     mRefChild1.setValue(location.getLongitude());
-                    mMap.setMyLocationEnabled(true);}
-                else
-                {
-                    Double lati=Double.parseDouble(lat.get(0));
-                    Double longi=Double.parseDouble(lat.get(1));
-                    LatLng curr=new LatLng(lati,longi);
+                    mMap.setMyLocationEnabled(true);
+                } else {
+                    Double lati = Double.parseDouble(lat.get(0));
+                    Double longi = Double.parseDouble(lat.get(1));
+                    LatLng curr = new LatLng(lati, longi);
                     mMap.addMarker(new MarkerOptions().position(curr).title("Current Location"));
                     mMap.setMyLocationEnabled(false);
 
@@ -242,44 +237,42 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
 
     }
+
     private String getRequestUrl(LatLng latLng, LatLng latLng1) {
 
-        String str_org="origin ="+latLng.latitude+ " , "+latLng.longitude;
-        String str_dest="destinaition = "+latLng1.latitude + " , "+latLng1.longitude;
-        String sensor="sensor-false";
-        String mode="mode=driving";
-        String param=str_org + "&"+str_dest+"&"+sensor+"&"+mode;
-        String output="json";
-        String url="https://maps.googleapis.com/maps/api/directions/"+output+"?"+param;
+        String str_org = "origin =" + latLng.latitude + " , " + latLng.longitude;
+        String str_dest = "destinaition = " + latLng1.latitude + " , " + latLng1.longitude;
+        String sensor = "sensor-false";
+        String mode = "mode=driving";
+        String param = str_org + "&" + str_dest + "&" + sensor + "&" + mode;
+        String output = "json";
+        String url = "https://maps.googleapis.com/maps/api/directions/" + output + "?" + param;
         return url;
 
     }
+
     private String requestDirection(String reqUrl) throws IOException {
-        String responseString="";
-        InputStream inputStream=null;
-        HttpURLConnection httpURLConnection=null;
-        try
-        {
-            URL url=new URL(reqUrl);
-            httpURLConnection=(HttpURLConnection) url.openConnection();
+        String responseString = "";
+        InputStream inputStream = null;
+        HttpURLConnection httpURLConnection = null;
+        try {
+            URL url = new URL(reqUrl);
+            httpURLConnection = (HttpURLConnection) url.openConnection();
             httpURLConnection.connect();
 
-            inputStream=httpURLConnection.getInputStream();
-            InputStreamReader inputStreamReader=new InputStreamReader(inputStream);
-            BufferedReader bufferedReader=new BufferedReader(inputStreamReader);
-            StringBuffer stringBuffer=new StringBuffer();
-            String line="";
-            while ((line=bufferedReader.readLine())!=null)
-            {
+            inputStream = httpURLConnection.getInputStream();
+            InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+            StringBuffer stringBuffer = new StringBuffer();
+            String line = "";
+            while ((line = bufferedReader.readLine()) != null) {
                 stringBuffer.append(line);
             }
 
-        }catch (Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
-        }finally {
-            if(inputStream!=null)
-            {
+        } finally {
+            if (inputStream != null) {
                 inputStream.close();
             }
             httpURLConnection.disconnect();
@@ -290,7 +283,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        switch (requestCode){
+        switch (requestCode) {
             case 10:
                 configure_button();
                 break;
@@ -300,12 +293,12 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         }
     }
 
-    void configure_button(){
+    void configure_button() {
         // first check for permissions
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION,Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.INTERNET}
-                        ,10);
+                requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.INTERNET}
+                        , 10);
             }
             return;
         }
@@ -322,8 +315,8 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                 //locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 01, 0, listener);
         });}*/
     }
-    public class TaskRequestDirection extends AsyncTask<String,Void,String>
-    {
+
+    public class TaskRequestDirection extends AsyncTask<String, Void, String> {
 
         @Override
         protected String doInBackground(String... strings) {
@@ -331,7 +324,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
             try {
                 responseString = requestDirection(strings[0]);
 
-            }catch (IOException e){
+            } catch (IOException e) {
                 e.printStackTrace();
 
             }
@@ -342,24 +335,22 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
 
-            TaskParser taskParser=new TaskParser();
+            TaskParser taskParser = new TaskParser();
             taskParser.execute(s);
         }
     }
 
-    public class TaskParser extends AsyncTask<String,Void,List<List<HashMap<String,String>>>>{
+    public class TaskParser extends AsyncTask<String, Void, List<List<HashMap<String, String>>>> {
 
         @Override
         protected List<List<HashMap<String, String>>> doInBackground(String... strings) {
-            JSONObject jsonObject=null;
-            List<List<HashMap<String,String>>> routes = null;
-            try
-            {
-                jsonObject=new JSONObject(strings[0]);
-                DirectionsJSONParser directionsJSONParser=new DirectionsJSONParser();
+            JSONObject jsonObject = null;
+            List<List<HashMap<String, String>>> routes = null;
+            try {
+                jsonObject = new JSONObject(strings[0]);
+                DirectionsJSONParser directionsJSONParser = new DirectionsJSONParser();
                 routes = directionsJSONParser.parse(jsonObject);
-            }catch (Exception e)
-            {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
             return routes;
@@ -369,17 +360,16 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         @Override
         protected void onPostExecute(List<List<HashMap<String, String>>> lists) {
 
-            ArrayList points=null;
-            PolylineOptions polylineOptions=null;
+            ArrayList points = null;
+            PolylineOptions polylineOptions = null;
 
-            for(List<HashMap<String,String>> path:lists)
-            {
+            for (List<HashMap<String, String>> path : lists) {
                 points = new ArrayList();
                 polylineOptions = new PolylineOptions();
-                for(HashMap<String,String>point:path){
-                    double lat=Double.parseDouble(point.get("lat"));
-                    double lon=Double.parseDouble(point.get("lon"));
-                    points.add(new LatLng(lat,lon));
+                for (HashMap<String, String> point : path) {
+                    double lat = Double.parseDouble(point.get("lat"));
+                    double lon = Double.parseDouble(point.get("lon"));
+                    points.add(new LatLng(lat, lon));
 
                 }
                 polylineOptions.addAll(points);
@@ -387,15 +377,19 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                 polylineOptions.color(Color.BLUE);
                 polylineOptions.geodesic(true);
             }
-            if(polylineOptions!=null)
-            {
+            if (polylineOptions != null) {
                 mMap.addPolyline(polylineOptions);
-            }
-            else
-            {
-                Toast.makeText(getApplicationContext(),"Direction not found!",Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(getApplicationContext(), "Direction not found!", Toast.LENGTH_SHORT).show();
             }
 
         }
-    }}
+    }
 
+    public void newact(View view)
+    {
+        Intent intent=new Intent(this,Main5Activity.class);
+        startActivity(intent);
+    }
+
+}
