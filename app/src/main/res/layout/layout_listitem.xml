@@ -10,6 +10,14 @@
         android:textColor="#000"
         android:layout_centerVertical="true"
         android:layout_marginTop="24dp"
-        android:textSize="17sp"/>
+        android:textSize="32sp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/busstops"
+        android:text="Toronto"
+        android:layout_below="@id/routename"
+        android:textColor="@android:color/black"
+        />
 
 </RelativeLayout>
