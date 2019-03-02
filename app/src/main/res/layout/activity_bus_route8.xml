@@ -14,33 +14,46 @@
             android:layout_height="match_parent"
             >
             <Button
-                android:text="KUNDRATHUR"
+                android:text="EGMORE PANTHEON ROAD"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <Button
-                android:text="ANAGAPUTHUR BUS STAND"
+                android:text="STERLING ROAD"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <Button
-                android:text="PAMMAL"
+                android:text="VALLUVAR KOTTAM"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <Button
-                android:text="PALLAVARAM"
+                android:text="POTHYS"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <Button
-                android:text="CHROMPET"
+                android:text="AYOTHAVA MANDAPAM"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <Button
-                android:text="BHARATH MADHA KOVIL STREET"
+                android:text="ASHOK PILLAR"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <Button
-                android:text="VIT UNIVERSITY"
+                android:text="KASI THEATRE"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
+            <Button
+                android:text="KATHIPARA"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <Button
+                android:text="VELACHERY RLY STATIONY"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <Button
+                android:text="VIT CHENNAI"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
 
         </LinearLayout>
 

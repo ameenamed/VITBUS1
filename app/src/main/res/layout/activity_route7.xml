@@ -14,31 +14,48 @@
             android:layout_height="match_parent"
             >
             <Button
-                android:text="KUNDRATHUR"
+                android:text="CHINMIYA NAGAR"
+                android:onClick="chinmiyanagar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <Button
-                android:text="ANAGAPUTHUR BUS STAND"
+                android:text="VIRUGAMPAKKAM"
+                android:onClick="virugampakkam"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <Button
-                android:text="PAMMAL"
+                android:text="PORUR"
+                android:onClick="porur"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <Button
+                android:text="NANTHAMBAKKAM"
+                android:onClick="nanthambakkam"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <Button
+                android:text="KATHIPARA"
+                android:onClick="kathipara"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <Button
                 android:text="PALLAVARAM"
+                android:onClick="pallavaram"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <Button
                 android:text="CHROMPET"
+                android:onClick="chrompet"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <Button
-                android:text="BHARATH MADHA KOVIL STREET"
+                android:text="TAMBARAM"
+                android:onClick="tambaram"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <Button
                 android:text="VIT UNIVERSITY"
+                android:onClick="vit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 

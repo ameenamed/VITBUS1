@@ -1,6 +1,9 @@
 package com.example.android.vitbus;
 
 
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.os.PowerManager;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 
@@ -62,6 +65,7 @@ import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.firebase.database.FirebaseDatabase;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.PipedInputStream;
@@ -89,6 +93,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
         Firebase.setAndroidContext(this);
@@ -102,6 +107,8 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, lat);
         // locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 01, 0, listener);
         //mValueView.setAdapter(arrayAdapter);
+
+
         mRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
@@ -143,6 +150,11 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
+        PowerManager powerManager = (PowerManager) getSystemService(POWER_SERVICE);
+
+        PowerManager.WakeLock wakeLock = powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,
+                "MyApp::MyWakelockTag");
+        wakeLock.acquire();
         b = (Switch) findViewById(R.id.button);
         //t = (TextView)findViewById(R.id.textView);
         mMap = googleMap;
@@ -154,6 +166,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         }
 
         mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+
             @Override
             public void onMapClick(LatLng latLng) {
                 if (listpoints.size() == 1) {
@@ -195,6 +208,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         listener = new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
+                mMap.clear();
                 if (b.isChecked()) {
                     mMap.clear();
                     Firebase mRefChild = mRef.child("Latitude");
@@ -202,6 +216,8 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                     Firebase mRefChild1 = mRef.child("Longitude");
                     mRefChild1.setValue(location.getLongitude());
                     mMap.setMyLocationEnabled(true);
+
+
                 } else {
                     Double lati = Double.parseDouble(lat.get(0));
                     Double longi = Double.parseDouble(lat.get(1));
@@ -234,6 +250,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
         // init();
         configure_button();
+        wakeLock.release();
 
 
     }
@@ -363,6 +380,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
             ArrayList points = null;
             PolylineOptions polylineOptions = null;
 
+
             for (List<HashMap<String, String>> path : lists) {
                 points = new ArrayList();
                 polylineOptions = new PolylineOptions();
@@ -390,6 +408,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     {
         Intent intent=new Intent(this,Main5Activity.class);
         startActivity(intent);
+        finish();
     }
 
 }

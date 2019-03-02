@@ -14,33 +14,30 @@
             android:layout_height="match_parent"
             >
             <Button
-                android:text="KUNDRATHUR"
+                android:text="MIT BRIDGE"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <Button
-                android:text="ANAGAPUTHUR BUS STAND"
+                android:text="CHITLAPAKKAM"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <Button
-                android:text="PAMMAL"
+                android:text="BHARADHAMADHA KOIL STREET"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <Button
-                android:text="PALLAVARAM"
+                android:text="MAHALAKSHMI NAGAR"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <Button
-                android:text="CHROMPET"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            <Button
-                android:text="BHARATH MADHA KOVIL STREET"
+                android:text="CAMP ROAD"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <Button
                 android:text="VIT UNIVERSITY"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
+
 
         </LinearLayout>
 

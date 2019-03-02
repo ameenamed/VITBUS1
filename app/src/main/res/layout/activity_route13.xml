@@ -14,33 +14,54 @@
             android:layout_height="match_parent"
             >
             <Button
-                android:text="KUNDRATHUR"
+                android:text="Parry's Corner"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <Button
-                android:text="ANAGAPUTHUR BUS STAND"
+                android:text="Central Rly Station"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <Button
-                android:text="PAMMAL"
+                android:text="Ribbon Building"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <Button
-                android:text="PALLAVARAM"
+                android:text="Dasprkash"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <Button
-                android:text="CHROMPET"
+                android:text="Ega"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <Button
-                android:text="BHARATH MADHA KOVIL STREET"
+                android:text="Pachaiyappas"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <Button
-                android:text="VIT UNIVERSITY"
+                android:text="Aminjikarai"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
+            <Button
+                android:text="D.G.Vaishnava"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <Button
+                android:text="Maduravoyal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <Button
+                android:text="Porur Toll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <Button
+                android:text="Perungalathur"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <Button
+                android:text="VIT Chennai"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
 
         </LinearLayout>
 

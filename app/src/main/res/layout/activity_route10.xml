@@ -14,32 +14,52 @@
             android:layout_height="match_parent"
             >
             <Button
-                android:text="KUNDRATHUR"
+                android:text="MADHAVARAM ROUNTANA"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <Button
-                android:text="ANAGAPUTHUR BUS STAND"
+                android:text="PUZHAL CAMP"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <Button
-                android:text="PAMMAL"
+                android:text="KALLIKUPPAM"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <Button
-                android:text="PALLAVARAM"
+                android:text="PUDHUR"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <Button
-                android:text="CHROMPET"
+                android:text="RAKKI THEATRE"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <Button
-                android:text="BHARATH MADHA KOVIL STREET"
+                android:text="THIRUMULLAIVOYAL"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <Button
-                android:text="VIT UNIVERSITY"
+                android:text="AVADI"
                 android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <Button
+                android:text="PATTABIRAM"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <Button
+                android:text="NEMILICHERRY"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <Button
+                android:text="MANNIVAKKAM"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <Button
+                android:text="VANDALUR"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <Button
+                android:layout_width="wrap_content"
+                android:text="VIT CHENNAI"
                 android:layout_height="wrap_content" />
 
         </LinearLayout>

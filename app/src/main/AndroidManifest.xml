@@ -9,6 +9,7 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <uses-feature android:name="android.hardware.location.gps" />
 
@@ -19,7 +20,29 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Main6Activity"></activity>
+        <activity android:name=".Route20"></activity>
+        <activity android:name=".Route19" />
+        <activity android:name=".Route18" />
+        <activity android:name=".Route17" />
+        <activity android:name=".BusRoute16" />
+        <activity android:name=".Route15" />
+        <activity android:name=".Route14" />
+        <activity android:name=".Route13" />
+        <activity android:name=".Route12" />
+        <activity
+            android:name=".Route11"
+            android:label="@string/title_activity_route11" />
+        <activity android:name=".Route10" />
+        <activity android:name=".Route9" />
+        <activity android:name=".BusRoute8" />
+        <activity android:name=".Route7" />
+        <activity android:name=".Route6" />
+        <activity android:name=".Route5" />
+        <activity android:name=".Route4" />
+        <activity android:name=".Route3" />
+        <activity android:name=".Route2" />
+        <activity android:name=".Route1" />
+        <activity android:name=".Main6Activity" />
         <activity android:name=".Main5Activity" />
         <activity android:name=".route16" />
         <activity android:name=".route8" />

@@ -45,8 +45,86 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             public void onClick(View v) {
 
             Log.d(TAG,""+mrouteNo.get(i));
-            Intent intent=new Intent(v.getContext(),Main6Activity.class);
-            v.getContext().startActivity(intent);
+            if(mrouteNo.get(i)=="Route 1"){
+                Intent intent=new Intent(v.getContext(),Route1.class);
+                v.getContext().startActivity(intent);
+            }
+            else if(mrouteNo.get(i)=="Route 2"){
+                Intent intent=new Intent(v.getContext(),Route2.class);
+                v.getContext().startActivity(intent);
+            }
+            else if(mrouteNo.get(i)=="Route 3"){
+                Intent intent=new Intent(v.getContext(),Route3.class);
+                v.getContext().startActivity(intent);
+            }
+            else if(mrouteNo.get(i)=="Route 4"){
+                Intent intent=new Intent(v.getContext(),Route4.class);
+                v.getContext().startActivity(intent);
+            }
+            else if(mrouteNo.get(i)=="Route 5"){
+                Intent intent=new Intent(v.getContext(),Route5.class);
+                v.getContext().startActivity(intent);
+            }
+            else if(mrouteNo.get(i)=="Route 6"){
+                Intent intent=new Intent(v.getContext(),Route6.class);
+                v.getContext().startActivity(intent);
+            }
+            else if(mrouteNo.get(i)=="Route 7"){
+                Intent intent=new Intent(v.getContext(),Route7.class);
+                v.getContext().startActivity(intent);
+            }
+            else if(mrouteNo.get(i)=="Route 8"){
+                Intent intent=new Intent(v.getContext(),BusRoute8.class);
+                v.getContext().startActivity(intent);
+            }
+            else if(mrouteNo.get(i)=="Route 9"){
+                Intent intent=new Intent(v.getContext(),Route9.class);
+                v.getContext().startActivity(intent);
+            }
+            else if(mrouteNo.get(i)=="Route 10"){
+                Intent intent=new Intent(v.getContext(),Route10.class);
+                v.getContext().startActivity(intent);
+            }
+            else if(mrouteNo.get(i)=="Route 11"){
+                Intent intent=new Intent(v.getContext(),Route11.class);
+                v.getContext().startActivity(intent);
+            }
+            else if(mrouteNo.get(i)=="Route 12"){
+                Intent intent=new Intent(v.getContext(),Route12.class);
+                v.getContext().startActivity(intent);
+            }
+            else if(mrouteNo.get(i)=="Route 13"){
+                Intent intent=new Intent(v.getContext(),Route13.class);
+                v.getContext().startActivity(intent);
+            }
+            else if(mrouteNo.get(i)=="Route 14"){
+                Intent intent=new Intent(v.getContext(),Route14.class);
+                v.getContext().startActivity(intent);
+            }
+            else if(mrouteNo.get(i)=="Route 15"){
+                Intent intent=new Intent(v.getContext(),Route15.class);
+                v.getContext().startActivity(intent);
+            }
+            else if(mrouteNo.get(i)=="Route 16"){
+                Intent intent=new Intent(v.getContext(),BusRoute16.class);
+                v.getContext().startActivity(intent);
+            }
+            else if(mrouteNo.get(i)=="Route 17"){
+                Intent intent=new Intent(v.getContext(),Route17.class);
+                v.getContext().startActivity(intent);
+            }
+            else if(mrouteNo.get(i)=="Route 18"){
+                Intent intent=new Intent(v.getContext(),Route18.class);
+                v.getContext().startActivity(intent);
+            }
+            else if(mrouteNo.get(i)=="Route 19"){
+                Intent intent=new Intent(v.getContext(),Route19.class);
+                v.getContext().startActivity(intent);
+            }
+            else if(mrouteNo.get(i)=="Route 20"){
+                Intent intent=new Intent(v.getContext(),Route20.class);
+                v.getContext().startActivity(intent);
+            }
 
             }
         });
