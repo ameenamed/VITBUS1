@@ -97,13 +97,23 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
         Firebase.setAndroidContext(this);
-        mRef = new Firebase("https://vitbus1.firebaseio.com/");
-        //mValueView=(ListView) findViewById(R.id.listview);
 
+        //mValueView=(ListView) findViewById(R.id.listview);
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.g_map);
         mapFragment.getMapAsync(this);
 
+
+    }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        PowerManager powerManager = (PowerManager) getSystemService(POWER_SERVICE);
+
+        PowerManager.WakeLock wakeLock = powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,
+                "MyApp::MyWakelockTag");
+        wakeLock.acquire();
+        mRef = new Firebase("https://vitbus1.firebaseio.com/");
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, lat);
         // locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 01, 0, listener);
         //mValueView.setAdapter(arrayAdapter);
@@ -146,15 +156,6 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         });
 
 
-    }
-
-    @Override
-    public void onMapReady(GoogleMap googleMap) {
-        PowerManager powerManager = (PowerManager) getSystemService(POWER_SERVICE);
-
-        PowerManager.WakeLock wakeLock = powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,
-                "MyApp::MyWakelockTag");
-        wakeLock.acquire();
         b = (Switch) findViewById(R.id.button);
         //t = (TextView)findViewById(R.id.textView);
         mMap = googleMap;
