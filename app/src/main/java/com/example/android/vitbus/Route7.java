@@ -1,5 +1,6 @@
 package com.example.android.vitbus;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -66,6 +67,11 @@ public class Route7 extends AppCompatActivity {
         LatLng g=new LatLng(13.06307, 80.19785);
         LatLng curr =new LatLng(Double.parseDouble(lat.get(0)),Double.parseDouble(lat.get(1)));
 
+        Intent intent=new Intent(this,MapActivity.class);
+        intent.putExtra("bool","1");
+        intent.putExtra("lata","13.06307");
+        intent.putExtra("latb","80.19785");
+        startActivity(intent);
 
 
 
@@ -108,5 +114,10 @@ public class Route7 extends AppCompatActivity {
     public void vit(View view)
     {
         LatLng g=new LatLng(12.840400,80.152500);
+        Intent intent=new Intent(this,MapActivity.class);
+        intent.putExtra("bool","1");
+        intent.putExtra("lata","12.840400");
+        intent.putExtra("latb","80.152500");
+        startActivity(intent);
     }
 }

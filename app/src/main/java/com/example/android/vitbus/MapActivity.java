@@ -2,6 +2,8 @@ package com.example.android.vitbus;
 
 
 import android.annotation.SuppressLint;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.os.PowerManager;
 import android.support.v4.app.FragmentActivity;
@@ -44,6 +46,7 @@ import com.google.android.gms.location.LocationServices;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -78,7 +81,7 @@ import java.util.List;
 
 public class MapActivity extends AppCompatActivity implements OnMapReadyCallback {
 
-    private GoogleMap mMap, cMap;
+    private GoogleMap mMap, cMap;int alar=0;
     private static final int LOCATION_REQUEST = 500;
     private LocationManager locationManager;
     private LocationListener listener;
@@ -203,8 +206,10 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         mMap.moveCamera(CameraUpdateFactory.newLatLng(seattle));
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
 
-        //locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 01, 0, listener);
-        //t.append("\n " + 12.840232 + " " + 80.152984);
+        String q = getIntent().getStringExtra("lata");
+        String r = getIntent().getStringExtra("latb");
+
+
         mMap.setMyLocationEnabled(false);
         listener = new LocationListener() {
             @Override
@@ -217,6 +222,31 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                     Firebase mRefChild1 = mRef.child("Longitude");
                     mRefChild1.setValue(location.getLongitude());
                     mMap.setMyLocationEnabled(true);
+                    if(q!=null && r!=null)
+                    {
+                       Double o=6371.0;
+                       Double z=Double.parseDouble(q);
+                       Double s=Double.parseDouble(r);
+                       Double dlat=dtr(z-location.getLatitude());
+                       Double dlog=dtr(s-location.getLongitude());
+                       Double lat1=dtr(z);
+                       Double lat2=dtr(s);
+                       Double jk=Math.sin(dlat/2)*Math.sin(dlat/2)+Math.sin(dlog/2)*Math.sin(dlog/2)*Math.cos(lat1)*Math.cos(lat2);
+                       Double k=2*Math.atan2(Math.sqrt(jk),Math.sqrt(1-jk));
+                       o=o*k;
+                       if(o<=1 && alar==0)
+                       {
+                           alar++;
+                           int zero=0;
+
+                           Intent intent=new Intent(MapActivity.this,Alarm.class);
+                           AlarmManager am=(AlarmManager) getSystemService(ALARM_SERVICE);
+                           PendingIntent pi=PendingIntent.getBroadcast(getApplicationContext(),0,intent,0);
+                           am.set(AlarmManager.RTC_WAKEUP,0,pi);
+                       }
+
+
+                    }
 
 
                 } else {
@@ -225,6 +255,30 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                     LatLng curr = new LatLng(lati, longi);
                     mMap.addMarker(new MarkerOptions().position(curr).title("Current Location"));
                     mMap.setMyLocationEnabled(false);
+                    if(q!=null && r!=null)
+                    {
+                        Double o=6371.0;
+                        Double z=Double.parseDouble(q);
+                        Double s=Double.parseDouble(r);
+                        Double dlat=dtr(z-lati);
+                        Double dlog=dtr(s-longi);
+                        Double lat1=dtr(z);
+                        Double lat2=dtr(s);
+                        Double jk=Math.sin(dlat/2)*Math.sin(dlat/2)+Math.sin(dlog/2)*Math.sin(dlog/2)*Math.cos(lat1)*Math.cos(lat2);
+                        Double k=2*Math.atan2(Math.sqrt(jk),Math.sqrt(1-jk));
+                        o=o*k;
+                        if(o<=1 && alar==0)
+                        {
+                            alar++;
+                            int zero=0;
+                            Intent intent=new Intent(MapActivity.this ,Alarm.class);
+                            AlarmManager am=(AlarmManager) getSystemService(ALARM_SERVICE);
+                            PendingIntent pi=PendingIntent.getBroadcast(getApplicationContext(),0,intent,0);
+                            am.set(AlarmManager.RTC_WAKEUP,0,pi);
+
+                        }
+
+                    }
 
                 }
 
@@ -405,11 +459,16 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         }
     }
 
+    public Double dtr(Double a)
+    {
+        return a*Math.PI/180;
+    }
     public void newact(View view)
     {
         Intent intent=new Intent(this,Main5Activity.class);
         startActivity(intent);
-        finish();
+        //f=true;
+        //finish();
     }
 
 }
