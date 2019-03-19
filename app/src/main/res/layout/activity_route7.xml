@@ -15,46 +15,55 @@
             >
             <Button
                 android:text="CHINMIYA NAGAR"
+                android:textColor="@android:color/darker_gray"
                 android:onClick="chinmiyanagar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <Button
                 android:text="VIRUGAMPAKKAM"
+                android:textColor="@android:color/darker_gray"
                 android:onClick="virugampakkam"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <Button
                 android:text="PORUR"
+                android:textColor="@android:color/darker_gray"
                 android:onClick="porur"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <Button
                 android:text="NANTHAMBAKKAM"
+                android:textColor="@android:color/darker_gray"
                 android:onClick="nanthambakkam"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <Button
                 android:text="KATHIPARA"
+                android:textColor="@android:color/darker_gray"
                 android:onClick="kathipara"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <Button
                 android:text="PALLAVARAM"
+                android:textColor="@android:color/darker_gray"
                 android:onClick="pallavaram"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <Button
                 android:text="CHROMPET"
+                android:textColor="@android:color/darker_gray"
                 android:onClick="chrompet"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <Button
                 android:text="TAMBARAM"
                 android:onClick="tambaram"
+                android:textColor="@android:color/darker_gray"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <Button
                 android:text="VIT UNIVERSITY"
+                android:textColor="@android:color/darker_gray"
                 android:onClick="vit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />

@@ -15,38 +15,47 @@
 
             <Button
                 android:text="Anna Nagar West Depot"
+                android:textColor="@android:color/darker_gray"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <Button
                 android:text="Thirumangalam"
+                android:textColor="@android:color/darker_gray"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <Button
                 android:text="Golden Flats"
                 android:layout_width="wrap_content"
+                android:textColor="@android:color/darker_gray"
                 android:layout_height="wrap_content" />
             <Button
                 android:text="Wavin"
                 android:layout_width="wrap_content"
+                android:textColor="@android:color/darker_gray"
                 android:layout_height="wrap_content" />
             <Button
                 android:text="Nolambur"
                 android:layout_width="wrap_content"
+                android:textColor="@android:color/darker_gray"
                 android:layout_height="wrap_content" />
             <Button
                 android:text="Toll Plaze"
                 android:layout_width="wrap_content"
+                android:textColor="@android:color/darker_gray"
                 android:layout_height="wrap_content" />
             <Button
                 android:text="Porur Bridge"
                 android:layout_width="wrap_content"
+                android:textColor="@android:color/darker_gray"
                 android:layout_height="wrap_content" />
             <Button
                 android:text="Perungalathur"
+                android:textColor="@android:color/darker_gray"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <Button
                 android:text="VIT Chennai"
+                android:textColor="@android:color/darker_gray"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </LinearLayout>

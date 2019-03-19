@@ -16,50 +16,62 @@
             android:layout_height="match_parent">
         <Button
             android:text="Shanthi Colony"
+            android:textColor="@android:color/darker_gray"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <Button
             android:text="Anna Nagar Rountana"
+            android:textColor="@android:color/darker_gray"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <Button
             android:text="Nadhamuni ICF"
+            android:textColor="@android:color/darker_gray"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <Button
             android:text="Anna Nagar West Depot"
+            android:textColor="@android:color/darker_gray"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <Button
             android:text="Thirumangalam"
+            android:textColor="@android:color/darker_gray"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <Button
             android:text="Golden Flats"
+            android:textColor="@android:color/darker_gray"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <Button
             android:text="Wavin"
+            android:textColor="@android:color/darker_gray"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <Button
             android:text="Nolambur"
+            android:textColor="@android:color/darker_gray"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <Button
             android:text="Toll Plaze"
+            android:textColor="@android:color/darker_gray"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <Button
             android:text="Porur Bridge"
+            android:textColor="@android:color/darker_gray"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <Button
             android:text="Perungalathur"
+            android:textColor="@android:color/darker_gray"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <Button
             android:text="VIT Chennai"
+            android:textColor="@android:color/darker_gray"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 

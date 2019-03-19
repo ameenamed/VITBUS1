@@ -23,44 +23,9 @@ public class Route7 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Firebase.setAndroidContext(this);
-        mRef = new Firebase("https://vitbus1.firebaseio.com/");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_route7);
-        mRef.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                String value = dataSnapshot.getValue(String.class);
-                lat.add(value);
-                String key = dataSnapshot.getKey();
-                mkeys.add(key);
-                //arrayAdapter.notifyDataSetChanged();
-            }
 
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-                String value = dataSnapshot.getValue(String.class);
-                String key = dataSnapshot.getKey();
-                int index = mkeys.indexOf(key);
-                lat.set(index, value);
-                //arrayAdapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-
-            }
-        });
     }
     public void chinmiyanagar(View view)
     {
@@ -79,37 +44,75 @@ public class Route7 extends AppCompatActivity {
     public void virugampakkam(View view)
     {
         LatLng g=new LatLng(13.046306,80.190111);
+        Intent intent=new Intent(this,MapActivity.class);
+        intent.putExtra("bool","1");
+        intent.putExtra("lata","13.046306");
+        intent.putExtra("latb","80.190111");
+        startActivity(intent);
 
     }
     public void porur(View view)
     {
         LatLng g=new LatLng(13.034500,80.156500);
+        Intent intent=new Intent(this,MapActivity.class);
+        intent.putExtra("bool","1");
+        intent.putExtra("lata","13.034500");
+        intent.putExtra("latb","80.156500");
+        startActivity(intent);
 
 
     }
     public void nanthambakkam(View view)
     {
         LatLng g=new LatLng(13.016800,80.189400);
+        Intent intent=new Intent(this,MapActivity.class);
+        intent.putExtra("bool","1");
+        intent.putExtra("lata","13.016800");
+        intent.putExtra("latb","80.189400");
+        startActivity(intent);
+
 
     }
     public void kathipara(View view)
     {
         LatLng g=new LatLng(13.007300,80.201600);
+        Intent intent=new Intent(this,MapActivity.class);
+        intent.putExtra("bool","1");
+        intent.putExtra("lata","13.007300");
+        intent.putExtra("latb","80.201600");
+        startActivity(intent);
+
 
     }
     public void pallavaram(View view)
     {
         LatLng g=new LatLng(12.968100,80.148700);
+        Intent intent=new Intent(this,MapActivity.class);
+        intent.putExtra("bool","1");
+        intent.putExtra("lata","12.968100");
+        intent.putExtra("latb","80.148700");
+        startActivity(intent);
     }
     public void chrompet(View view)
     {
         LatLng g=new LatLng(12.95161,80.14097);
+        Intent intent=new Intent(this,MapActivity.class);
+        intent.putExtra("bool","1");
+        intent.putExtra("lata","12.95161");
+        intent.putExtra("latb","80.14097");
+        startActivity(intent);
+
 
     }
     public void tambaram(View view)
     {
 
         LatLng g=new LatLng(12.925400,80.116700);
+        Intent intent=new Intent(this,MapActivity.class);
+        intent.putExtra("bool","1");
+        intent.putExtra("lata","12.925400");
+        intent.putExtra("latb","80.116700");
+        startActivity(intent);
     }
     public void vit(View view)
     {
